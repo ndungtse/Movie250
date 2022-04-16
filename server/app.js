@@ -1,41 +1,26 @@
 const express = require('express');
 const app = express()
 const bodyParser = require('body-parser')
-const mysql = require('mysql2');
+const cors = require('cors');
 
 app.use(bodyParser.urlencoded({ extended: false }))
 
 app.use(bodyParser.json())
-
-const pool = mysql.createPool({
-    connectionLimit : 10,
-    host        : 'localhost',
-    user        : 'root',
-    password    : 'chazard10.3',
-    database    : 'node'     
-    
-})
+app.use(cors({
+    origin: "*",
+}))
 
 app.get('/', (req, res)=> {
-    res.send('Welcome Node-Mysql Charles learnong site')
+    res.send('Welcome to movie250 site')
 })
 
-app.get('/beer', (req, res) => {
-   pool.getConnection((err, connection) => {
-       if(err) throw err
-        console.log(`connected as id ${connection.threadId}`)
-          connection.query('SELECT * from beers', (err, rows) => {
-           connection.release() // return the connection to pool
-           if(!err) {
-               res.send(rows)
-            } else {
-               console.log(err)
-            }
-       })
-   })
-// res.send('welcome')
-})
-app.get('/beer/:id', (req, res) => {
+const movieRoute = require('./routes/movieRoute')
+app.use('/api/movies', movieRoute)
+
+const newsRoute = require('./routes/newsRoute')
+app.use('/api/news', newsRoute)
+
+app.get('/api/movie/:id', (req, res) => {
     const id =req.params.id
    pool.getConnection((err, connection) => {
        if(err) throw err
@@ -51,7 +36,7 @@ app.get('/beer/:id', (req, res) => {
    })
 })
 
-app.post('/beer', (req, res)=>{
+app.post('/api/movie', (req, res)=>{
     const { name , image, tagline, description } = req.body;
     pool.getConnection((err, connection) => {
         if(err) throw err
@@ -67,7 +52,7 @@ app.post('/beer', (req, res)=>{
     })
 })
 
-app.delete('/beer/:id', (req, res)=>{
+app.delete('/api/movie/:id', (req, res)=>{
     const id = req.params.id
     pool.getConnection((err, connection)=> {
         if(err) throw err
@@ -82,7 +67,7 @@ app.delete('/beer/:id', (req, res)=>{
     })
 })
 
-app.put('/beer/:id', (req, res)=>{
+app.put('/api/movie/:id', (req, res)=>{
     const id =req.params.id
     const { name, image, tagline, description } = req.body;
     pool.getConnection((err, connection)=>{
