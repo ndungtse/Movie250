@@ -5,7 +5,7 @@
                 <a href="movie.html" class="link active ">Home</a>
             </li>
             <li class="navitem">
-                <a href="Action.html" class="link">Action</a>
+                <router-link to="/action" class="link">Action</router-link>
             </li>
             <li class="navitem">
                 <a href="Romance.html" class="link">Romance</a>
@@ -28,6 +28,6 @@
 
 <script>
 export default {
-    name: 'Navbar'
+    name: 'MyNavbar'
 }
 </script>

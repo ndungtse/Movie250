@@ -1,26 +1,14 @@
 <template>
-  <div>
-    <Header />
-    <Navbar />
-    <Footer />
-  </div>
+        <router-view :movies="movies" :news="news"></router-view>
 </template>
 
 <script>
-import Header from './components/Header.vue'
-import Navbar from './components/Navbar.vue'
-import Footer from './components/Footer.vue'
-
 export default {
-  name: 'App',
-  components: {
-    Header,
-    Navbar,
-    Footer
-  },
+    name: 'MyRoutes',
   data() {
     return {
-      movies: []
+      movies: [],
+      news: []
     }
   },
   methods: {
@@ -29,13 +17,18 @@ export default {
       const data = await res.json();
       console.log(data)
       return data
-    }
+    },
+    async fethNews() {
+      const res = await fetch('http://localhost:2020/api/news')
+      const data = await res.json();
+      console.log(data)
+      return data
+    },
+
   },
   async created() {
     this.movies = await this.fethMovies()
+    this.news = await this.fethNews()
   },
 }
 </script>
-
-<style>
-</style>

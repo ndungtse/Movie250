@@ -62,6 +62,6 @@
 
 <script>
 export default {
-    name: 'Footer'
+    name: 'MyFooter'
 }
 </script>
