@@ -3,6 +3,9 @@
      <MyHeader />
      <MyNavbar />
      <MyNews :news="news"/>
+     <MyTrends :movies="movies" />
+     <MySoon />
+     <MyCat />
      <MyFooter />
     </div>
 </template>
@@ -12,6 +15,9 @@ import MyNews from './Home/news.vue'
 import MyNavbar from './Navbar.vue'
 import MyHeader from './Header.vue'
 import MyFooter from './Footer.vue'
+import MyTrends from './Home/trending.vue'
+import MySoon from './Home/soon.vue'
+import MyCat from './Home/cat.vue'
 
 export default {
     name: 'MyHome',
@@ -19,12 +25,16 @@ export default {
         MyNews,
         MyHeader,
         MyFooter,
-        MyNavbar
+        MyNavbar,
+        MyTrends,
+        MySoon,
+        MyCat
     },
     props: {
-        tasks: Array,
         movies: Array,
         news: Array
+    },
+    created() {
     },
 }
 </script>
