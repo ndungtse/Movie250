@@ -4,9 +4,10 @@
             <h2>New releases</h2>
         </div>
         <div class="action__wrapper">
-            <a target="_blank" href="https://www.youtube.com/watch?v=mqqft2x_Aa4" class="trends__card">
-                <img src="https://i0.wp.com/ravemotionpictures.com/wp-content/uploads/2022/03/The-Batman-Digital-Release-Date.jpeg?w=1980&ssl=1" alt="">
-                <p>Batman 2022</p>
+            <a target="_blank" v-for="trend in trends" :key="trend.id"
+            href="https://www.youtube.com/watch?v=mqqft2x_Aa4" class="trends__card">
+                <img :src="trend.image">
+                <p>{{trend.name}}</p>
                 <div class="trends__btn"><p>Watch Now</p></div>
             </a>
         </div>    
@@ -15,6 +16,9 @@
 
 <script>
 export default {
-    name: 'AtRends'
+    name: 'AtRends',
+    props: {
+        trends: Array
+    }
 }
 </script>

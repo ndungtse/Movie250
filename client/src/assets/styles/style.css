@@ -70,8 +70,7 @@
       transition: all 0.35s;
   }
 
-  .link:hover,
-  .active {
+  .link:hover {
       color: rgb(42, 164, 235);
   }
 
