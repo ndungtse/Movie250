@@ -2,25 +2,25 @@
     <nav class="navbar">
         <ul class="navconts">
             <li class="navitem">
-                <a href="movie.html" class="link active ">Home</a>
+                <router-link to="/" class="link active ">Home</router-link>
             </li>
             <li class="navitem">
                 <router-link to="/action" class="link">Action</router-link>
             </li>
             <li class="navitem">
-                <a href="Romance.html" class="link">Romance</a>
+                <router-link to="/romance" class="link">Romance</router-link>
             </li>
             <li class="navitem">
-                <a href="Comedy.html" class="link">Comedy</a>
+                <router-link to="/comedy" class="link">Comedy</router-link>
             </li>
             <li class="navitem">
-                <a href="Adventure.html" class="link">Adventure</a>
+                <router-link to="/adventure" class="link">Adventure</router-link>
             </li>
             <li class="navitem">
-                <a href="Animation.html" class="link">Animation</a>
+                <router-link to="/animation" class="link">Animation</router-link>
             </li>
             <li class="navitem">
-                <a href="News.html" class="link">News</a>
+                <router-link to="/news" class="link">News</router-link>
             </li>
         </ul>
     </nav>

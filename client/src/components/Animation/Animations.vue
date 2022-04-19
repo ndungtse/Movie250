@@ -4,6 +4,6 @@
 
 <script>
 export default {
-    name: 'MyAdventure'
+    name: 'MyAnimat'
 }
 </script>
