@@ -8,7 +8,8 @@ export default {
   data() {
     return {
       movies: [],
-      news: []
+      news: [],
+      loading: true
     }
   },
   methods: {
@@ -28,6 +29,7 @@ export default {
   },
   async created() {
     this.movies = await this.fethMovies()
+    this.loading = false
     this.news = await this.fethNews()
   },
 }
