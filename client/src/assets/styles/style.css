@@ -209,7 +209,7 @@
   .cat-card:nth-child(1) {
       display: flex;
       flex-direction: column;
-      /* background: url(https://i0.wp.com/ravemotionpictures.com/wp-content/uploads/2022/03/The-Batman-Digital-Release-Date.jpeg?w=1980&ssl=1); */
+      background: url(https://i0.wp.com/ravemotionpictures.com/wp-content/uploads/2022/03/The-Batman-Digital-Release-Date.jpeg?w=1980&ssl=1);
       background-size: 100%;
       width: 100%;
       padding: 30% 20%;
@@ -218,7 +218,7 @@
   }
 
   .cat-card:nth-child(2) {
-      /* background: url(Images/titanic-cover.jpg); */
+      background: url(https://cdn.mos.cms.futurecdn.net/yBbEW7hX2k5qK35PkeDqFV-1024-80.jpg.webp);
       display: flex;
       flex-direction: column;
       background-size: 150%;
@@ -229,7 +229,7 @@
   }
 
   .cat-card:nth-child(3) {
-      /* background: url(https://i.guim.co.uk/img/media/d31ebd49b32a5aa609a584ababb1e03bc70b4942/573_213_2929_1758/master/2929.jpg?width=620&quality=45&auto=format&fit=max&dpr=2&s=f635c67f6d38faabc03568df3ad1a7d9); */
+      background: url(https://i.guim.co.uk/img/media/d31ebd49b32a5aa609a584ababb1e03bc70b4942/573_213_2929_1758/master/2929.jpg?width=620&quality=45&auto=format&fit=max&dpr=2&s=f635c67f6d38faabc03568df3ad1a7d9);
       display: flex;
       flex-direction: column;
       background-size: 150%;
@@ -240,7 +240,7 @@
   }
 
   .cat-card:nth-child(4) {
-      /* background: url(https://static1.colliderimages.com/wordpress/wp-content/uploads/2021/11/central-intelligence-social.jpg?q=50&fit=contain&w=750&h=375&dpr=1.5); */
+      background: url(https://static1.colliderimages.com/wordpress/wp-content/uploads/2021/11/central-intelligence-social.jpg?q=50&fit=contain&w=750&h=375&dpr=1.5);
       display: flex;
       flex-direction: column;
       background-size: 150%;
@@ -252,7 +252,7 @@
   }
 
   .cat-card:nth-child(5) {
-      /* background: url(https://www.westernnewyorker.com/wp-content/uploads/2022/01/Hotel-Transylvania-4-Review.png); */
+      background: url(https://www.westernnewyorker.com/wp-content/uploads/2022/01/Hotel-Transylvania-4-Review.png);
       display: flex;
       flex-direction: column;
       background-size: 150%;
@@ -263,7 +263,7 @@
   }
 
   .cat-card:nth-child(6) {
-      /* background: url(https://static1.colliderimages.com/wordpress/wp-content/uploads/2021/12/who-is-michael-morbius.jpg?q=50&fit=contain&w=750&h=375&dpr=1.5); */
+      background: url(https://static1.colliderimages.com/wordpress/wp-content/uploads/2021/12/who-is-michael-morbius.jpg?q=50&fit=contain&w=750&h=375&dpr=1.5);
       display: flex;
       flex-direction: column;
       background-color: #9c9ea1;
