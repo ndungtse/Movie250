@@ -112,7 +112,7 @@
       display: grid;
       grid-auto-flow: column;
       overflow-x: auto;
-      grid-auto-columns: 28%;
+      grid-auto-columns: 23%;
       -ms-overflow-style: none;
       scrollbar-width: none;
       overscroll-behavior-inline: contain;
@@ -143,6 +143,8 @@
 
   .trends__card img {
       width: 100%;
+      height: 30vh;
+      object-fit: cover;
   }
 
   .trends__card h2 {
@@ -315,7 +317,7 @@
 
   @media screen and (max-width: 600px) {
       .trends__wrapper {
-          grid-auto-columns: 50%;
+          grid-auto-columns: 50%!important;
       }
 
       .cat-card:nth-child(6) {
@@ -456,6 +458,9 @@
       .nesimag img {
           width: 70%;
       }
+      .trends__wrapper{
+          grid-auto-columns:300px;
+      }
   }
 
   .slide {
@@ -526,4 +531,19 @@
 
   .monews a:hover {
       background-color: #190792;
+  }
+
+  .anim{
+      background-color: #060606;
+      animation-name: loading;
+      animation-duration: 1.7s;
+      animation-iteration-count: infinite;
+  }
+
+  @keyframes loading {
+      0%{opacity: 0.2;};
+      20%{opacity: 0.5;}
+      50%{opacity: 0.8;}
+      80%{opacity: 0.5;}
+      100%{opacity: 0.2;}
   }

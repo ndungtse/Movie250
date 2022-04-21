@@ -6,9 +6,9 @@
         <div class="trends__wrapper">
             <a v-for="trend in trends" :key="trend.id" target="_blank"
              href="https://www.youtube.com/watch?v=mqqft2x_Aa4" class="trends__card">
-                <img :src="trend.image"
+                <img :src="image_path+trend.poster_path"
                     alt="">
-                <p>{{trend.name}}</p>
+                <p>{{trend.title}}</p>
                 <div class="trends__btn"><p>Watch Now</p></div>
             </a>
         </div>
@@ -26,6 +26,7 @@ export default {
     },
     props: {
         movies: Array,
+        image_path: String
     },
     methods: {
        async getTrends(){
@@ -40,6 +41,7 @@ export default {
   
 async created() {
     this.trends = await this.getTrends()
+    this.trends = this.movies
   }
 }
   

@@ -2,10 +2,10 @@
     <div>
      <my-header/>
      <my-navbar/>
-     <AtRends :trends="trends"/>  
-     <CoSoon :soons="soons" />
-     <AcPop :pops="pops" />
-     <ac-olds :olds="olds" />
+     <AtRends :trends="trends" :image_path="image_path" />  
+     <CoSoon :soons="soons" :image_path="image_path" />
+     <AcPop :pops="pops" :image_path="image_path" />
+     <ac-olds :olds="olds" :image_path="image_path" />
      <my-footer/>
     </div>
 </template>
@@ -30,6 +30,9 @@ export default {
             olds: []
         }
     },
+    props:{
+       image_path: String 
+    },
     components: {
         MyHeader,
         MyNavbar,
@@ -41,16 +44,29 @@ export default {
     },
     methods: {
        async getAction(){
-           const res = await fetch('http://localhost:2020/api/movies')
+           const res = await fetch('https://api.themoviedb.org/3/movie/upcoming?api_key=580723fc25986a1cec69f928267db062&language=en-US&page=1')
            const data = await res.json();
 
-           const actions = data.filter((m)=> m.genre === "action")
-           const trends = actions.filter((a)=> a.status === "trending")
-           const soons = actions.filter(a => a.status === "coming soon")
-           const pops = actions.filter(a => a.other === "popular")
-           const olds = actions.filter(a => a.status === "old")
+           const actions = data.results.filter(a => a.genre_ids.includes(28))
 
-          return {actions, trends, soons, pops, olds}
+            const restr = await fetch('https://api.themoviedb.org/3/movie/now_playing?api_key=580723fc25986a1cec69f928267db062&language=en-US&page=1')
+            const datre = await restr.json()
+            const trends = datre.results.filter((a)=> a.genre_ids.includes(28))
+
+            const resoon = await fetch('https://api.themoviedb.org/3/movie/upcoming?api_key=580723fc25986a1cec69f928267db062&language=en-US&page=1')
+            const datasoon = await resoon.json();
+           const soons = datasoon.results.filter(a => a.genre_ids.includes(28))
+
+           const fpop = await fetch('https://api.themoviedb.org/3/movie/popular?api_key=580723fc25986a1cec69f928267db062&language=en-US&page=1')
+           const fdata = await fpop.json()
+           const pops = fdata.results.filter(a => a.genre_ids.includes(28))
+
+           const res1= await fetch('http://localhost:2020/api/movies')
+           const data1 = await res1.json()
+           const acts = data1.filter(a => a.genre ==='action')
+           const olds = acts.filter(a => a.status === "old")
+
+          return {actions , trends, soons, pops, olds}
        } 
     },
     async created() {

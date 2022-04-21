@@ -6,9 +6,9 @@
         <div class="trends__wrapper">
             <a target="_blank" v-for="soon in soon" :key="soon.id"
              href="https://www.youtube.com/watch?v=nfKO9rYDmE8" class="trends__card">
-                <img :src="soon.image"
+                <img :src="image_path+soon.poster_path"
                     alt="">
-                <p>{{soon.name}}</p>
+                <p>{{soon.title}}</p>
                 <div class="trends__btn"><p>See Trailer</p></div>
             </a>
         </div>
@@ -20,16 +20,20 @@ export default {
     name: 'MySoon',
     data() {
         return {
-            soon: []
+            soon: [],
         }
+    },
+    props: {
+        image_path: String
     },
     methods: {
         async getSoons(){
-           const res = await fetch('http://localhost:2020/api/movies')
+           const res = await fetch('https://api.themoviedb.org/3/movie/upcoming?api_key=580723fc25986a1cec69f928267db062&language=en-US&page=1')
            const data = await res.json();
-           const soon = data.filter((m)=> m.status === "comming soon")
+        //    const soon = data.filter((m)=> m.status === "comming soon")
+            console.log(data);
 
-           return soon
+           return data.results
         }
     },
     async created() {
