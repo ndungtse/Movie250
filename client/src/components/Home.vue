@@ -7,6 +7,7 @@
      <MyNews :news="news"/>
      <MyTrends :movies="movies" :image_path="image_path"/>
      <MySoon :image_path="image_path" />
+     <my-olds/>
      <MyCat />
      <MyFooter />
      </div> 
@@ -22,6 +23,7 @@ import MyTrends from './Home/trending.vue'
 import MySoon from './Home/soon.vue'
 import MyCat from './Home/cat.vue'
 import HomeLoader from './Loaders/HomeLoader.vue'
+import MyOlds from './Action/AcOlds.vue'
 
 export default {
     name: 'MyHome',
@@ -33,6 +35,7 @@ export default {
         MyTrends,
         MySoon,
         MyCat,
+        MyOlds,
         HomeLoader
     },
     props: {

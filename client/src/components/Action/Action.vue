@@ -61,12 +61,12 @@ export default {
            const fdata = await fpop.json()
            const pops = fdata.results.filter(a => a.genre_ids.includes(28))
 
-           const res1= await fetch('http://localhost:2020/api/movies')
-           const data1 = await res1.json()
-           const acts = data1.filter(a => a.genre ==='action')
-           const olds = acts.filter(a => a.status === "old")
+        //    const res1= await fetch('http://localhost:2020/api/movies')
+        //    const data1 = await res1.json()
+        //    const acts = data1.filter(a => a.genre ==='action')
+        //    const olds = acts.filter(a => a.status === "old")
 
-          return {actions , trends, soons, pops, olds}
+          return {actions , trends, soons, pops}
        } 
     },
     async created() {

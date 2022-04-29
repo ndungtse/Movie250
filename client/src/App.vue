@@ -21,12 +21,12 @@ export default {
       console.log(data)
       return data.results
     },
-    async fethNews() {
-      const res = await fetch('http://localhost:2020/api/news')
-      const data = await res.json();
-      console.log(data)
-      return data
-    },
+    // async fethNews() {
+    //   const res = await fetch('http://localhost:2020/api/news')
+    //   const data = await res.json();
+    //   console.log(data)
+    //   return data
+    // },
 
   },
   async created() {
@@ -34,7 +34,7 @@ export default {
     setTimeout(()=>{
       this.loading = false
     }, 2000)
-    this.news = await this.fethNews()
+    // this.news = await this.fethNews()
   },
 }
 </script>
