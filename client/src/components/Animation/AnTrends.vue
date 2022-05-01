@@ -6,8 +6,8 @@
         <div class="action__wrapper">
             <a target="_blank" v-for="trend in trends" :key="trend.id"
             href="https://ww1.goojara.to/mab4BV" class="trends__card">
-                <img :src="trend.image" alt="">
-                <p>{{trend.name}}</p>
+                <img :src="image_path+trend.poster_path" alt="">
+                <p>{{trend.title}}</p>
                 <div class="trends__btn"><p>Watch Now</p></div>
             </a>
         </div>
@@ -18,7 +18,8 @@
 export default {
     name: 'MyTrends',
     props: {
-        trends: Array
+        trends: Array,
+        image_path: String 
     }
 }
 </script>

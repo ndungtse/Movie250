@@ -6,8 +6,8 @@
         <div class="action__wrapper">
             <a target="_blank" v-for="trend in trends" :key="trend.id"
             href="https://ww1.goojara.to/mab4BV" class="trends__card">
-                <img :src="trend.image" alt="">
-                <p>{{trend.name}}</p>
+                <img :src="image_path+trend.poster_path" alt="">
+                <p>{{trend.title}}</p>
                 <div class="trends__btn"><p>Watch Now</p></div>
             </a>
         </div>
@@ -17,8 +17,27 @@
 <script>
 export default {
     name: 'MyTrends',
+    data() {
+        return{
+            // trends: [],
+        }
+    },
     props: {
-        trends: Array
+        trends: Array,
+        image_path: String 
+    },
+    methods:{
+        async getTrends() {
+            const res = await fetch('https://api.themoviedb.org/3/movie/popular?api_key=580723fc25986a1cec69f928267db062&language=en-US&page=1')
+            const data = await res.json();
+            console.log(data)
+            return data.results
+        }
+    },
+
+    async created() {
+        console.log('hell');
     }
+
 }
 </script>

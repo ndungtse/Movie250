@@ -40,7 +40,7 @@ export default {
     },
   
 async created() {
-    this.trends = await this.getTrends()
+    // this.trends = await this.getTrends()
     this.trends = this.movies
   }
 }
