@@ -6,8 +6,8 @@
         <div class="action__wrapper">
             <a target="_blank" v-for="soon in soons" :key="soon.id"
              href="" class="trends__card">
-                <img :src="soon.image">
-                <p>{{soon.name}}</p>
+                <img :src="image_path+soon.backdrop_path">
+                <p>{{soon.title}}</p>
                 <div class="trends__btn"><p>See Trailer</p></div>
             </a>
         </div>
@@ -18,7 +18,8 @@
 export default {
     name: 'MySoons',
     props: {
-        soons: Array
+        soons: Array,
+        image_path: String
     }
 }
 </script>

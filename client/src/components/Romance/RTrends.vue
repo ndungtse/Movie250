@@ -10,10 +10,10 @@
         class="trends__card"
       >
         <img
-          :src="trend.image"
+          :src="image_path+trend.backdrop_path"
           alt=""
         />
-        <p>{{trend.name}}</p>
+        <p>{{trend.title}}</p>
         <div class="trends__btn"><p>Watch Now</p></div>
       </a>
     </div>
@@ -24,7 +24,8 @@
 export default {
   name: "MyTrends",
   props: {
-      trends: Array
+      trends: Array,
+      image_path: String
   }
 };
 </script>

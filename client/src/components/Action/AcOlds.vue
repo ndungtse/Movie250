@@ -21,18 +21,18 @@
 
 <script>
 export default {
-    name: 'AcOlds',
-    data() {
-        return{
-            olds: [],
-        }
-    },
-    // props: {
-    //     olds: Array
-    // },
-    methods: {
-        async getAction() {
-            const fetch = require("node-fetch");
+  name: "AcOlds",
+  data() {
+    return {
+      olds: [],
+    };
+  },
+  // props: {
+  //     olds: Array
+  // },
+  methods: {
+    async getAction() {
+      const fetch = require("node-fetch");
 
       const url = "https://movies-app1.p.rapidapi.com/api/movies";
 
@@ -48,13 +48,11 @@ export default {
       console.log(res);
       const data = await res.json();
       return data;
-    
-        }
     },
-    async created() {
-        const data = await this.getAction()
-        this.olds = await data.results
-    }
-    
-}
+  },
+  async created() {
+    const data = await this.getAction();
+    this.olds = await data.results;
+  },
+};
 </script>

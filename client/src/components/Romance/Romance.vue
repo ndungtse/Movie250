@@ -2,10 +2,10 @@
     <div>
         <MyHeader />
         <my-navbar />
-        <MyTrends :trends="trends" />
-        <MySoons :soons="soons" />
-        <MyPops :pops="pops" />
-        <MyOlds :olds="olds" />
+        <MyTrends :trends="trends"  :image_path="image_path" />
+        <MySoons :soons="soons" :image_path="image_path" />
+        <!-- <MyPops :pops="pops" /> -->
+        <MyOlds :olds="olds" :image_path="image_path" />
         <MyFooter />
     </div>
 </template>
@@ -14,9 +14,9 @@
 import MyNavbar from '../Navbar.vue'
 import MyFooter from '../Footer.vue'
 import MyHeader from '../Header.vue'
-import MyTrends from './RTrends'
+import MyTrends from './RTrends.vue'
 import MySoons from './RSoons.vue'
-import MyPops from './RPops.vue'
+// import MyPops from './RPops.vue
 import MyOlds from './ROlds.vue'
 
 export default {
@@ -27,7 +27,7 @@ export default {
         MyFooter,
         MyTrends,
         MySoons,
-        MyPops,
+        // MyPops,
         MyOlds
     },
     data() {
@@ -39,28 +39,37 @@ export default {
             olds: []
         }
     },
+    props: {
+        image_path: String
+    },
     methods: {
         async getRomance(){
-            const res = await fetch('http://localhost:2020/api/movies')
+            
+            const res = await fetch('https://api.themoviedb.org/3/movie/829557/similar?api_key=580723fc25986a1cec69f928267db062&language=en-US&page=1')
             const data = await res.json()
+            const olds = await data.results
 
-            const romance = data.filter(d => d.genre === 'romance');
-            const trends = romance.filter(r => r.status === 'trending')
-            const soons = romance.filter(s => s.status === 'coming soon')
-            const pops = romance.filter(p => p.other === 'popular')
-            const olds = romance.filter(o => o.status === 'old')
+            const res1 = await fetch('https://api.themoviedb.org/3/movie/upcoming?api_key=580723fc25986a1cec69f928267db062&language=en-US&page=1')
+            const data1 = await res1.json()
+            const rom = await data1.results
+            const soons = await rom.filter(s=> s.genre_ids.includes(10749))
 
-            return {romance, trends, soons, pops, olds}
+            const res2 = await fetch('https://api.themoviedb.org/3/movie/top_rated?api_key=580723fc25986a1cec69f928267db062&language=en-US&page=1')
+            const data2= await res2.json()
+            const rom1 = await data2.results
+            const trends = await rom1.filter(r=> r.genre_ids.includes(10749))
+
+            return {olds, soons, trends}
         }
     },
 
     async created() {
         const all = await this.getRomance()
 
-        this.romances = await all.romance
+        this.romances = await all
         this.trends = await all.trends
         this.soons = await all.soons
-        this.pops = await all.pops
+        // this.pops = await all.pops
         this.olds = await all.olds
     },
 }
