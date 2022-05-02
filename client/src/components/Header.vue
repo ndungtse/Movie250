@@ -1,9 +1,9 @@
 <template>
     <header class="header">
-        <a href="index.html" class="logo">
+        <router-link to="/" class="logo">
             <i class="bx bxs-movie-play"></i>
             <h1>Movie250</h1>
-        </a>
+        </router-link>
     </header>
 </template>
 <script>
