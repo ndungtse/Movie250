@@ -40,7 +40,6 @@ export default {
         options
       );
       const data = await res.json();
-      console.log(data.items);
       const rel = await data.items.slice(0, 3)
       return rel;
     }
