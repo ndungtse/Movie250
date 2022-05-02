@@ -423,17 +423,17 @@
   }
 
   .nesimag {
-      width: 50%;
+      width: 40%;
 
   }
 
   .nesimag img {
-      width: 100%;
-
+      width: 90%;
+    aspect-ratio: 1/1;
   }
 
   .newsdesc {
-      width: 50%;
+      width: 60%;
       padding: 10px 20px;
   }
 

@@ -21,20 +21,30 @@ export default {
       console.log(data)
       return data.results
     },
-    // async fethNews() {
-    //   const res = await fetch('http://localhost:2020/api/news')
-    //   const data = await res.json();
-    //   console.log(data)
-    //   return data
-    // },
+    async getHomeNews(){
+      const options = {
+        method: "GET",
+        headers: {
+          "X-RapidAPI-Host": "online-movie-database.p.rapidapi.com",
+          "X-RapidAPI-Key":
+            "bbce629d3cmsh48cb41094daa35cp1157cejsn05466969482c",
+        },
+      };
+      const res = await fetch(
+        "https://online-movie-database.p.rapidapi.com/title/get-news?tconst=tt0944947&limit=25",
+        options
+      );
+      const data = await res.json();
+      console.log(data.items);
+      const rel = await data.items.slice(0, 3)
+      return rel;
+    }
 
   },
   async created() {
     this.movies = await this.fethMovies()
-    setTimeout(()=>{
+    this.news = await this.getHomeNews()
       this.loading = false
-    }, 2000)
-    // this.news = await this.fethNews()
   },
 }
 </script>

@@ -13,7 +13,7 @@
           <div class="newscont">
             <p>{{ news.body }}</p>
           </div>
-          <a href="{{news.Link}}" target="_blank">Read More</a>
+          <a :href="news.link" target="_blank" rel="noreferrer noopener">Read More</a>
         </div>
       </div>
     </div>
