@@ -1,19 +1,24 @@
 <template>
   <div>
-    <MyHeader />
-    <MyNavbar />
-    <div class="News">
-      <h2>Trending News</h2>
-      <div class="newsholder" v-for="news in news" :key="news.id">
-        <div class="nesimag">
-          <img :src="news.image.url" alt="" />
-        </div>
-        <div class="newsdesc">
-          <h3>{{ news.head}}</h3>
-          <div class="newscont">
-            <p>{{ news.body }}</p>
+    <news-loader v-if="load" />
+    <div v-else>
+      <MyHeader />
+      <MyNavbar />
+      <div class="News">
+        <h2>Trending News</h2>
+        <div class="newsholder" v-for="news in news" :key="news.id">
+          <div class="nesimag">
+            <img :src="news.image.url" alt="" />
           </div>
-          <a :href="news.link" target="_blank" rel="noreferrer noopener">Read More</a>
+          <div class="newsdesc">
+            <h3>{{ news.head }}</h3>
+            <div class="newscont">
+              <p>{{ news.body }}</p>
+            </div>
+            <a :href="news.link" target="_blank" rel="noreferrer noopener"
+              >Read More</a
+            >
+          </div>
         </div>
       </div>
     </div>
@@ -25,6 +30,7 @@
 import MyHeader from "./Header.vue";
 import MyNavbar from "./Navbar.vue";
 import MyFooter from "./Footer.vue";
+import NewsLoader from "./Loaders/NewsLoader.vue";
 
 export default {
   name: "MyNews",
@@ -32,10 +38,12 @@ export default {
     MyHeader,
     MyNavbar,
     MyFooter,
+    NewsLoader,
   },
   data() {
     return {
       news: [],
+      load: true,
     };
   },
   // props: {
@@ -61,8 +69,8 @@ export default {
   },
   async created() {
     const data = await this.getNews();
-    this.news = await data.items
-    console.log(this.news);
+    this.news = await data.items;
+    this.load = false
   },
 };
 </script>

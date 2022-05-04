@@ -6,7 +6,7 @@
     <div class="action__wrapper">
       <a v-for="trend in trends" :key="trend.id"
         target="_blank"
-        href="https://ww1.goojara.to/mab4BV"
+        :href="movie_url+trend.title"
         class="trends__card"
       >
         <img
@@ -25,7 +25,8 @@ export default {
   name: "MyTrends",
   props: {
       trends: Array,
-      image_path: String
+      image_path: String,
+      movie_url: String
   }
 };
 </script>

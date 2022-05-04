@@ -5,9 +5,9 @@
         </div>
         <div class="action__wrapper">
             <a target="_blank" v-for="pop in pops" :key="pop.id"
-            href="https://ww1.goojara.to/mab4BV" class="trends__card">
+            :href="movie_url+pop.title" class="trends__card">
                 <img :src="image_path+pop.backdrop_path" alt="">
-                <p>{{pop.name}}</p>
+                <p>{{pop.title}}</p>
                 <div class="trends__btn"><p>Watch Now</p></div>
             </a>
         </div>
@@ -19,7 +19,8 @@ export default {
     name: 'MyPops',
     props: {
         pops: Array,
-        image_path: String
+        image_path: String,
+        movie_url: String
     }
 }
 </script>

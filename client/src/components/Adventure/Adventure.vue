@@ -1,12 +1,18 @@
 <template>
   <div>
+    <home-loader v-if="load" />
+    <div v-else>
     <MyHeader />
     <my-navbar />
-    <MyTrends :trends="trends" :image_path="image_path" />
-    <MySoons :soons="soons" :image_path="image_path" />
+    <MyTrends :trends="trends"
+     :image_path="image_path" :movie_url="movie_url" />
+    <MySoons :soons="soons" 
+    :movie_url="movie_url"
+    :image_path="image_path" />
     <!-- <MyPops :pops="pops" />
     <MyOlds :olds="olds" /> -->
     <MyFooter />
+    </div>
   </div>
 </template>
 
@@ -18,6 +24,7 @@ import MyTrends from "./AdTrends.vue";
 // import MyOlds from "./AdOlds.vue";
 // import MyPops from "./AdPops.vue";
 import MySoons from "./AdSoons.vue";
+import HomeLoader from '../Loaders/HomeLoader.vue'
 
 export default {
   name: "MyAdventure",
@@ -29,6 +36,7 @@ export default {
     MySoons,
     // MyOlds,
     // MyPops,
+    HomeLoader
   },
   data() {
     return {
@@ -37,10 +45,12 @@ export default {
       soons: [],
       pops: [],
       olds: [],
+      load: true
     };
   },
   props:{
-    image_path: String
+    image_path: String,
+    movie_url: String
   },
   methods: {
     // async getAdventure(){
@@ -75,6 +85,7 @@ export default {
     // this.soons = await all.soons;
     // this.pops = await all.pops;
     // this.olds = await all.olds;
+    this.load = false
   },
 };
 </script>

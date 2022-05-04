@@ -5,7 +5,7 @@
         </div>
         <div class="action__wrapper">
             <a target="_blank" v-for="old in olds" :key="old.id"
-             href="" class="trends__card">
+             :href="movie_url+old.title" class="trends__card">
                 <img :src="image_path+old.backdrop_path" alt="">
                 <p>{{old.title}}</p>
                 <div class="trends__btn"><p>Wath Now</p></div>
@@ -19,7 +19,8 @@ export default {
     name: 'MyOlds',
     props: {
         olds: Array,
-        image_path: String
+        image_path: String,
+        movie_url: String
     }
 }
 </script>

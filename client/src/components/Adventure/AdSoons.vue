@@ -8,7 +8,7 @@
         target="_blank"
         v-for="soon in soons"
         :key="soon.id"
-        href="https://www.youtube.com/watch?v=-d5ztm8JB8c"
+        :href="movie_url+soon.title"
         class="trends__card"
       >
         <img :src="image_path+soon.poster_path" alt="" />
@@ -29,6 +29,7 @@ export default {
   },
   props: {
     image_path: String,
+    movie_url: String
   },
   methods: {
     async getSoons() {

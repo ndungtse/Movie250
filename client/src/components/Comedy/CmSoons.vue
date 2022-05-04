@@ -5,7 +5,7 @@
         </div>
         <div class="action__wrapper">
             <a target="_blank" v-for="soon in soons" :key="soon.id"
-            href="https://www.youtube.com/watch?v=-d5ztm8JB8c" class="trends__card">
+            :href="movie_url+soon.title" class="trends__card">
                 <img :src="image_path + soon.poster_path" alt="">
                 <p>{{soon.title}}</p>
                 <div class="trends__btn"><p>See Trailer</p></div>
@@ -23,7 +23,8 @@ export default {
         }
     },
     props: {
-        image_path: String
+        image_path: String,
+        movie_url: String
     },
     methods: {
     async getSoonComedy() {

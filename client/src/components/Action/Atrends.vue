@@ -5,7 +5,7 @@
         </div>
         <div class="trends__wrapper">
             <a target="_blank" v-for="trend in trends" :key="trend.id"
-            href="https://www.youtube.com/watch?v=mqqft2x_Aa4" class="trends__card">
+            :href="movie_url+trend.title" class="trends__card">
                 <img :src="image_path+trend.poster_path">
                 <p>{{trend.title}}</p>
                 <div class="trends__btn"><p>Watch Now</p></div>
@@ -19,7 +19,8 @@ export default {
     name: 'AtRends',
     props: {
         trends: Array,
-        image_path: String
+        image_path: String,
+        movie_url: String
     }
 }
 </script>

@@ -8,7 +8,7 @@
         target="_blank"
         v-for="old in olds"
         :key="old._id"
-        href="https://ww1.goojara.to/moPGgY"
+        :href="movie_url+old.title"
         class="trends__card"
       >
         <img :src="old.image" />
@@ -27,9 +27,9 @@ export default {
       olds: [],
     };
   },
-  // props: {
-  //     olds: Array
-  // },
+  props: {
+      movie_url: String,
+  },
   methods: {
     async getAction() {
       const fetch = require("node-fetch");

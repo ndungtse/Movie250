@@ -1,12 +1,18 @@
 <template>
   <div>
+    <home-loader v-if="load" />
+    <div v-else>
     <MyHeader />
     <my-navbar />
-    <MyTrends :trends="trends" :image_path="image_path" />
-    <MySoons :soons="soons" :image_path="image_path"/>
-    <MyPops :pops="pops"  :image_path="image_path" />
+    <MyTrends :trends="trends" :movie_url="movie_url"
+    :image_path="image_path" />
+    <MySoons :soons="soons" :movie_url="movie_url"
+    :image_path="image_path"/>
+    <MyPops :pops="pops" :movie_url="movie_url"
+      :image_path="image_path" />
     <!-- <MyOlds :olds="olds" /> -->
     <MyFooter />
+    </div>
   </div>
 </template>
 <script>
@@ -17,6 +23,7 @@ import MyTrends from "./CmTrends.vue";
 // import MyOlds from "./CmOlds.vue";
 import MyPops from "./CmPops.vue";
 import MySoons from "./CmSoons.vue";
+import HomeLoader from '../Loaders/HomeLoader.vue'
 
 export default {
   name: "MyComedy",
@@ -28,6 +35,7 @@ export default {
     MySoons,
     // MyOlds,
     MyPops,
+    HomeLoader
   },
   data() {
     return {
@@ -36,10 +44,12 @@ export default {
       soons: [],
       pops: [],
       olds: [],
+      load: true
     };
   },
    props:{
-       image_path: String 
+       image_path: String,
+       movie_url: String
     },
   methods: {
     async getComedy() {
@@ -65,6 +75,7 @@ export default {
     // this.soons = await all.soons;
     this.pops = await all.pops;
     // this.olds = await all.olds;
+    this.load = false
   },
 };
 </script>
