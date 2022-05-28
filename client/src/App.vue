@@ -16,7 +16,7 @@ export default {
     return {
       movies: [],
       news: [],
-      loading: true,
+      loading: false,
       image_path: "https://image.tmdb.org/t/p/w500",
       movie_url: 'https://www.youtube.com/results?search_query='
     };
