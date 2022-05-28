@@ -5,13 +5,19 @@ import MyRomance from '../components/Romance/Romance.vue'
 import MyComedy from '../components/Comedy/Comedy.vue'
 import MyAdventure from '../components/Adventure/Adventure.vue'
 import MyAnimations from '../components/Animation/Animations.vue'
-import MyNews from "../components/News.vue"
+import MyNews from "../components/News.vue";
+import MyStore from '../components/store/MyStore.vue'
 
 const routes = [
     {
         path: '/',
         name: 'Home',
         component: Home
+    },
+    {
+        path: '/moviestore',
+        name: 'store',
+        component: MyStore
     },
     {
         path: '/action',

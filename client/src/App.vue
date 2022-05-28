@@ -31,12 +31,18 @@ export default {
       return data.results;
     },
     async getHomeNews() {
-      const options = {
+      const localNews = localStorage.getItem("news");
+      if(localNews){
+        this.news = JSON.parse(localNews);
+        this.loading = false;
+        return JSON.parse(localNews);
+      }else{
+        const options = {
         method: "GET",
         headers: {
           "X-RapidAPI-Host": "online-movie-database.p.rapidapi.com",
           "X-RapidAPI-Key":
-            "bbce629d3cmsh48cb41094daa35cp1157cejsn05466969482c",
+            "18cae65599mshc2ae603a38272a2p19e31djsn4718e8d63b0c",
         },
       };
       const res = await fetch(
@@ -45,7 +51,11 @@ export default {
       );
       const data = await res.json();
       const rel = await data.items.slice(0, 3);
+        localStorage.setItem("news", JSON.stringify(data.items));
+        this.news = rel;
+        this.loading = false;
       return rel;
+      }
     },
 
     async getVideos(id) {

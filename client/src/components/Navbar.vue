@@ -5,6 +5,9 @@
                 <router-link to="/" class="link active ">Home</router-link>
             </li>
             <li class="navitem">
+                <router-link to="/moviestore" class="link active ">Movie Store</router-link>
+            </li>
+            <li class="navitem">
                 <router-link to="/action" class="link">Action</router-link>
             </li>
             <li class="navitem">
