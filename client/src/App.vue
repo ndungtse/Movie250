@@ -24,7 +24,7 @@ export default {
   methods: {
     async fethMovies() {
       const res = await fetch(
-        "https://api.themoviedb.org/3/movie/popular?api_key=580723fc25986a1cec69f928267db062&language=en-US&page=1"
+        `https://api.themoviedb.org/3/movie/popular?api_key=${process.env.VUE_APP_TBD_KEY}&language=en-US&page=1`
       );
       const data = await res.json();
       console.log(data);
@@ -60,7 +60,7 @@ export default {
 
     async getVideos(id) {
       const res = await fetch(
-        `https://api.themoviedb.org/3/movie/${id}/watch/providers?api_key=580723fc25986a1cec69f928267db062`
+        `https://api.themoviedb.org/3/movie/${id}/watch/providers?api_key=${process.env.VUE_APP_TBD_KEY}&language=en-US`
       );
       const data = await res.json();
       console.log(data.results.AE);
@@ -68,6 +68,8 @@ export default {
     },
   },
   async created() {
+    console.log(process.env.VUE_APP_TBD_KEY);
+    
     this.movies = await this.fethMovies();
     this.news = await this.getHomeNews();
     this.loading = false;
