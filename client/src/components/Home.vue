@@ -44,8 +44,15 @@ export default {
     MyOlds,
     HomeLoader,
   },
+  mounted(){
+    this.movies = this.fethMovies()
+  },
+  data(){
+    return {
+      movies: []
+    }
+  },
   props: {
-    movies: Array,
     news: Array,
     loading: Boolean,
     image_path: String,
@@ -55,10 +62,17 @@ export default {
     movie_url: String
   },
   emits: ["getVideos"],
-  async created() {
-    // const vid = await this.props.getVideos(335787);
-    // console.log(this.props.loading);
-  },
+  methods: {
+    async fethMovies() {
+      const res = await fetch(
+        `https://api.themoviedb.org/3/movie/popular?api_key=${process.env.VUE_APP_TDB_KEY}&language=en-US&page=1`
+      );
+      const data = await res.json();
+      console.log(data);
+      this.movies = await data.results
+      return data.results;
+    },
+  }
 };
 </script>
 

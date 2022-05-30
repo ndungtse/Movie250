@@ -5,7 +5,7 @@
     </div>
     <div class="trends__wrapper">
       <a
-        v-for="trend in trends"
+        v-for="trend in movies"
         :key="trend.id"
         target="_blank"
         :href="movie_url+trend.title"
@@ -27,7 +27,7 @@ export default {
       trends: [],
     };
   },
-  props: {
+   props: {
     movies: Array,
     image_path: String,
     movie_url: String
@@ -52,12 +52,6 @@ export default {
     //   console.log(link);
       return await link;
     },
-  },
-
-  async created() {
-    // this.trends = await this.getTrends()
-    this.trends = this.movies;
-     console.log('helo', await this.getVideos(634649));
   },
 };
 </script>
