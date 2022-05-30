@@ -69,7 +69,6 @@ export default {
   },
   async created() {
     console.log(process.env.VUE_APP_TDB_KEY);
-    
     this.movies = await this.fethMovies();
     this.news = await this.getHomeNews();
     this.loading = false;

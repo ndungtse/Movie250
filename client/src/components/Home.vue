@@ -4,7 +4,7 @@
     <div v-else>
       <MyHeader />
       <MyNavbar />
-      <!-- <MyNews :news="news" /> -->
+      <MyNews :news="news" />
       <MyTrends
         :movies="movies"
         :image_path="image_path"
@@ -21,7 +21,7 @@
 </template>
 
 <script>
-// import MyNews from "./Home/news.vue";
+import MyNews from "./Home/news.vue";
 import MyNavbar from "./Navbar.vue";
 import MyHeader from "./Header.vue";
 import MyFooter from "./Footer.vue";
@@ -34,7 +34,7 @@ import MyOlds from "./Action/AcOlds.vue";
 export default {
   name: "MyHome",
   components: {
-    // MyNews,
+    MyNews,
     MyHeader,
     MyFooter,
     MyNavbar,
