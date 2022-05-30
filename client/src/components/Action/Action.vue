@@ -56,26 +56,26 @@ export default {
   methods: {
     async getAction() {
       const res = await fetch(
-        `https://api.themoviedb.org/3/movie/upcoming?api_key=${process.env.VUE_APP_TBD_KEY}&language=en-US&page=1`
+        `https://api.themoviedb.org/3/movie/upcoming?api_key=${process.env.VUE_APP_TDB_KEY}&language=en-US&page=1`
       );
       const data = await res.json();
 
       const actions = data.results.filter((a) => a.genre_ids.includes(28));
 
       const restr = await fetch(
-        `https://api.themoviedb.org/3/movie/now_playing?api_key=${process.env.VUE_APP_TBD_KEY}&language=en-US&page=1`
+        `https://api.themoviedb.org/3/movie/now_playing?api_key=${process.env.VUE_APP_TDB_KEY}&language=en-US&page=1`
       );
       const datre = await restr.json();
       const trends = datre.results.filter((a) => a.genre_ids.includes(28));
 
       const resoon = await fetch(
-        `https://api.themoviedb.org/3/movie/upcoming?api_key=${process.env.VUE_APP_TBD_KEY}&language=en-US&page=1`
+        `https://api.themoviedb.org/3/movie/upcoming?api_key=${process.env.VUE_APP_TDB_KEY}&language=en-US&page=1`
       );
       const datasoon = await resoon.json();
       const soons = datasoon.results.filter((a) => a.genre_ids.includes(28));
 
       const fpop = await fetch(
-        `https://api.themoviedb.org/3/movie/popular?api_key=${process.env.VUE_APP_TBD_KEY}&language=en-US&page=1`
+        `https://api.themoviedb.org/3/movie/popular?api_key=${process.env.VUE_APP_TDB_KEY}&language=en-US&page=1`
       );
       const fdata = await fpop.json();
       const pops = fdata.results.filter((a) => a.genre_ids.includes(28));
