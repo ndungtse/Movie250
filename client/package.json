@@ -10,6 +10,7 @@
   "dependencies": {
     "core-js": "^3.8.3",
     "dotenv": "^16.0.1",
+    "pinia": "^2.0.14",
     "vue": "^3.2.13",
     "vue-pagination-tw": "^0.1.2",
     "vue-router": "^4.0.14",

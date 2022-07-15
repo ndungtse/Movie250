@@ -49,6 +49,11 @@ const routes = [
         name: 'News',
         component: MyNews
     },
+    {
+        path: '/movie/:id',
+        name: 'Movie',
+        component: () => import('../components/store/Movie.vue')
+    }
 ]
 
 const router = createRouter({

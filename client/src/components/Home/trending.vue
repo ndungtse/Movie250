@@ -4,17 +4,17 @@
       <h2>Trending Movies <i class="bx bxs-chevron-right"></i></h2>
     </div>
     <div class="trends__wrapper">
-      <a
+      <router-link
+        :to="{ name: 'Movie', params: { id: trend.id } }"
         v-for="trend in movies"
         :key="trend.id"
         target="_blank"
-        :href="movie_url+trend.title"
         class="trends__card"
       >
         <img :src="image_path + trend.poster_path" alt="" />
         <p>{{ trend.title }}</p>
         <div class="trends__btn"><p>Watch Now</p></div>
-      </a>
+      </router-link>
     </div>
   </div>
 </template>
