@@ -1,5 +1,5 @@
 <template>
-    <div class="w-full h-[100px] bg-white flex items-center">
+    <div class="w-full h-[50px] bg-white flex items-center">
         <NuxtLink to="/">
             <p class="font-semibold">Home</p>
         </NuxtLink>
