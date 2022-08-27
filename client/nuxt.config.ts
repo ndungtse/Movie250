@@ -7,7 +7,7 @@ export default defineNuxtConfig({
     ],
     server: {
         port: 3131,
-        host: ""
+        host: '0.0.0.0'
     },
     build: {
         postcss: {
@@ -18,8 +18,11 @@ export default defineNuxtConfig({
                 },
             }
         },
+        transpile: ['vuetify'],
     },
     css: [
         '@/assets/css/main.css',
+        '@fortawesome/fontawesome-svg-core/styles.css',
+        'vuetify/lib/styles/main.sass',
     ],
 })
