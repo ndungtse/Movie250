@@ -2,13 +2,22 @@
 	<div class="flex flex-col w-full h-screen">
 		<Navbar />
 		<div class="flex w-full">
-			<LeftPanel />
+			<leftpanelVue />
 		</div>
 	</div>
 </template>
-<script setup lang="ts">
+<script lang="ts">
+import navbarVue from "../components/navbar.vue";
+import leftpanelVue from "../components/home/leftpanel.vue";
 import { useTest } from "../store/test";
+	
+	export default {
+		components: {
+			navbarVue,
+			leftpanelVue,
+		},
+	}
 
-const test = useTest();
+// const test = useTest();
 
 </script>
